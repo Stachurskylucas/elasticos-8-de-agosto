@@ -70,7 +70,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }, [])
 
   const inc = useCallback((id: string) => {
-    setItems((prev) => prev.map((i) => (i.id === id ? { ...i, qty: i.qty + 1 } : i)))\n  }, [])
+    setItems((prev) => prev.map((i) => (i.id === id ? { ...i, qty: i.qty + 1 } : i)))
+  }, [])
 
   const dec = useCallback((id: string) => {
     setItems((prev) =>
@@ -115,7 +116,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
       {children}
 
       {/* Pop-up Toast Flotante Grande con Difuminado Suave */}
-      {lastAddedItem && (\n        <aside
+      {lastAddedItem && (
+        <aside
           role="status"
           aria-live="polite"
           onClick={() => {

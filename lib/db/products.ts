@@ -225,7 +225,8 @@ export async function updateProduct(id: string, updates: Partial<Product>): Prom
   // Fallback local
   const index = inMemoryProducts.findIndex((p) => p.id === id)
   if (index === -1) {
-    throw new Error(`Producto con ID ${id} no encontrado`)\n  }
+    throw new Error(`Producto con ID ${id} no encontrado`)
+  }
 
   const updated: Product = {
     ...inMemoryProducts[index],

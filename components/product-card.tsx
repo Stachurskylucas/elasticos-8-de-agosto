@@ -1,9 +1,9 @@
 "use client"
 
 import Image from "next/image"
+import { MessageSquare, Plus } from "lucide-react"
 import { useCart } from "@/components/cart-provider"
 import type { Product } from "@/lib/products"
-import { MessageSquare, Plus } from "lucide-react"
 import { wa } from "@/lib/site"
 
 export function ProductCard({ product }: { product: Product }) {
@@ -16,6 +16,7 @@ export function ProductCard({ product }: { product: Product }) {
 
   return (
     <article className="product-card group flex h-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-all hover:border-slate-300 hover:shadow-md">
+      {/* Imagen Rectangular */}
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100">
         <Image
           src={product.image || "/placeholder.svg"}
@@ -25,6 +26,7 @@ export function ProductCard({ product }: { product: Product }) {
           className="product-img object-cover transition-transform duration-500 group-hover:scale-105"
         />
 
+        {/* Badge de Stock arriba a la derecha */}
         {inStock ? (
           <span className="absolute right-2.5 top-2.5 inline-flex items-center gap-1 rounded-full border border-emerald-500/40 bg-emerald-950/80 px-2 py-0.5 text-[10px] font-bold text-emerald-300 backdrop-blur-sm shadow-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
@@ -38,21 +40,26 @@ export function ProductCard({ product }: { product: Product }) {
         )}
       </div>
 
+      {/* Contenido */}
       <div className="flex flex-1 flex-col p-4">
+        {/* Marca si existe */}
         {product.brand && product.brand !== "Universal" && (
           <span className="text-[11px] font-bold uppercase tracking-wider text-brand mb-1">
             {product.brand}
           </span>
         )}
 
+        {/* Título */}
         <h3 className="font-display text-sm font-bold leading-snug text-dark line-clamp-1">
           {product.name}
         </h3>
 
+        {/* Descripción corta */}
         <p className="mt-1.5 flex-1 text-xs text-slate-500 line-clamp-2 leading-relaxed">
           {product.desc}
         </p>
 
+        {/* Botones de Acción: Agregar al Carrito y Consultar */}
         <div className="mt-4 flex flex-col gap-2 pt-2 border-t border-slate-100">
           <div className="grid grid-cols-2 gap-2">
             <button

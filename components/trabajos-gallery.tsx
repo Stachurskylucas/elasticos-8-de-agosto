@@ -106,6 +106,7 @@ export function TrabajosGallery() {
 
   return (
     <>
+      {/* Grilla de Fotos estilo industrial compacto con badges */}
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:gap-4">
         {TRABAJOS_FOTOS.map((item, idx) => (
           <button
@@ -114,6 +115,7 @@ export function TrabajosGallery() {
             className="group relative aspect-[4/3] w-full overflow-hidden border-2 border-dark/10 bg-dark text-left transition-all duration-300 hover:border-brand hover:shadow-xl focus:outline-none"
             aria-label={`Ver foto ampliada ${item.badge}`}
           >
+            {/* Foto de fondo */}
             <Image
               src={item.src}
               alt={item.alt}
@@ -122,12 +124,15 @@ export function TrabajosGallery() {
               className="object-cover transition-transform duration-500 group-hover:scale-108"
             />
 
+            {/* Sombra inferior sutil para contraste */}
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 transition-opacity group-hover:opacity-90" />
 
+            {/* Icono de zoom en hover */}
             <div className="absolute right-2.5 top-2.5 flex h-7 w-7 items-center justify-center rounded-none bg-dark/80 text-white opacity-0 backdrop-blur-xs transition-opacity duration-300 group-hover:opacity-100">
               <ZoomIn className="h-3.5 w-3.5 text-brand" />
             </div>
 
+            {/* Badge rectangular de alto impacto en la parte inferior */}
             <div className="absolute bottom-2.5 left-2.5 right-2.5 z-10">
               <span className="inline-block rounded-none bg-brand px-2.5 py-1 text-[10px] font-extrabold tracking-wider text-white uppercase shadow-md sm:text-[11px]">
                 {item.badge}
@@ -137,6 +142,7 @@ export function TrabajosGallery() {
         ))}
       </div>
 
+      {/* ============ LIGHTBOX MODAL — SOLO FOTO EN PANTALLA COMPLETA ============ */}
       {currentPhoto && selectedIndex !== null && (
         <div
           role="dialog"
@@ -144,6 +150,7 @@ export function TrabajosGallery() {
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-2 sm:p-4 backdrop-blur-md animate-in fade-in duration-200"
           onClick={handleClose}
         >
+          {/* Botón Cerrar */}
           <button
             onClick={handleClose}
             aria-label="Cerrar visor"
@@ -152,6 +159,7 @@ export function TrabajosGallery() {
             <X className="h-6 w-6" />
           </button>
 
+          {/* Botón Anterior */}
           <button
             onClick={(e) => {
               e.stopPropagation()
@@ -163,6 +171,7 @@ export function TrabajosGallery() {
             <ChevronLeft className="h-7 w-7" />
           </button>
 
+          {/* Botón Siguiente */}
           <button
             onClick={(e) => {
               e.stopPropagation()
@@ -174,6 +183,7 @@ export function TrabajosGallery() {
             <ChevronRight className="h-7 w-7" />
           </button>
 
+          {/* Contenedor Únicamente de la Foto */}
           <div
             className="relative flex h-[82vh] w-full max-w-5xl items-center justify-center overflow-hidden"
             onClick={(e) => e.stopPropagation()}

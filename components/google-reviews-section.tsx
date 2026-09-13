@@ -12,7 +12,7 @@ interface Review {
 const REVIEWS: Review[] = [
   {
     id: "pablo",
-    text: "Es muy bueno y te buscan la solución para que te vayas con tu vehículo andando y bien. Son muy buenos con su trabajo, soy cliente de muchos años, se los recomiendo a todos, vale la pena ir, posta te vas contento. Lo que no te puede hacer otro mecánico él te lo hace. Son muy responsibles con su trabajo y cuidan al cliente porque saben que tienen que salir a trabajar con su unidad o vehículo.",
+    text: "Es muy bueno y te buscan la solución para que te vayas con tu vehículo andando y bien. Son muy buenos con su trabajo, soy cliente de muchos años, se los recomiendo a todos, vale la pena ir, posta te vas contento. Lo que no te puede hacer otro mecánico él te lo hace. Son muy responsables con su trabajo y cuidan al cliente porque saben que tienen que salir a trabajar con su unidad o vehículo.",
     author: "PABLO MAROTTA",
     stars: 5,
     opinions: "4 opiniones",

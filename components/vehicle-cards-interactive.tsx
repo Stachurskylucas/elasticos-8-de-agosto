@@ -17,6 +17,191 @@ interface VehicleGroup {
   }[]
 }
 
-const VEHICLES: VehicleGroup[] = [\n  {\n    id: "pesados",\n    title: "Camiones de Carga Pesada",\n    tag: "6X4 · 8X4 · PESADOS",\n    description:\n      "Mercedes-Benz (Axor, Actros, Atego, 1634), Scania (R, P, G), Volvo (FH, FM, VM), Iveco (Stralis, Trakker), Ford Cargo y VW Constellation.",\n    detail: "Ejes delanteros, traseros, nivelación y refuerzos tándem",\n    images: [\n      {\n        src: "/images/camiones-6x4-8x4.png",\n        alt: "Camiones volcadores 6x4 y 8x4 en taller",\n        caption: "Volcadores y chasis 6x4 / 8x4",\n      },\n      {\n        src: "/images/banner-ruta.png",\n        alt: "Flota de camiones pesados en ruta",\n        caption: "Unidades de larga distancia",\n      },\n      {\n        src: "/images/taller-interior.png",\n        alt: "Fosas especializadas para camiones pesados",\n        caption: "Fosas para ejes tándem",\n      },\n    ],\n  },\n  {\n    id: "utilitarios",\n    title: "Utilitarios & Camionetas",\n    tag: "VANS · UTILITARIOS · PICK-UPS",\n    description:\n      "Mercedes-Benz Sprinter, Iveco Daily, Toyota Hilux, Ford Ranger, Volkswagen Amarok y Renault Master.",\n    detail: "Refuerzos para sobrecarga, reparto urbano y trabajo severo",\n    images: [\n      {\n        src: "/images/utilitarios-vans.png",\n        alt: "Mercedes Sprinter y Toyota Hilux en taller",\n        caption: "Mercedes Sprinter & Hilux",\n      },\n      {\n        src: "/images/detalle-elastico.png",\n        alt: "Paquete de elásticos y armado para utilitarios",\n        caption: "Recambio y hojas adicionales",\n      },\n      {\n        src: "/images/prod-bujes.png",\n        alt: "Bujes y silentblocks reforzados",\n        caption: "Bujes y amortiguadores",\n      },\n    ],\n  },\n  {\n    id: "semirremolques",\n    title: "Semirremolques & Bateas",\n    tag: "ARRASTRE · 2 Y 3 EJES",\n    description:\n      "Randon, Helvetica, Montenegro, Cormetal, Maldonado, Guerra, Lambert y bateas volcadoras.",\n    detail: "Balancines, bujes y suspensión pesada de 2 y 3 ejes",\n    images: [\n      {\n        src: "/images/semirremolques-bateas.png",\n        alt: "Bateas y tolvas graneleras en taller",\n        caption: "Bateas volcadoras y tolvas",\n      },\n      {\n        src: "/images/taller-interior.png",\n        alt: "Mantenimiento de ejes de arrastre",\n        caption: "Ejes balancines y suspensión",\n      },\n      {\n        src: "/images/hero-taller.png",\n        alt: "Curvado y forja de hojas pesadas",\n        caption: "Curvado en caliente",\n      },\n    ],\n  },\n]
+const VEHICLES: VehicleGroup[] = [
+  {
+    id: "pesados",
+    title: "Camiones de Carga Pesada",
+    tag: "6X4 · 8X4 · PESADOS",
+    description:
+      "Mercedes-Benz (Axor, Actros, Atego, 1634), Scania (R, P, G), Volvo (FH, FM, VM), Iveco (Stralis, Trakker), Ford Cargo y VW Constellation.",
+    detail: "Ejes delanteros, traseros, nivelación y refuerzos tándem",
+    images: [
+      {
+        src: "/images/camiones-6x4-8x4.png",
+        alt: "Camiones volcadores 6x4 y 8x4 en taller",
+        caption: "Volcadores y chasis 6x4 / 8x4",
+      },
+      {
+        src: "/images/banner-ruta.png",
+        alt: "Flota de camiones pesados en ruta",
+        caption: "Unidades de larga distancia",
+      },
+      {
+        src: "/images/taller-interior.png",
+        alt: "Fosas especializadas para camiones pesados",
+        caption: "Fosas para ejes tándem",
+      },
+    ],
+  },
+  {
+    id: "utilitarios",
+    title: "Utilitarios & Camionetas",
+    tag: "VANS · UTILITARIOS · PICK-UPS",
+    description:
+      "Mercedes-Benz Sprinter, Iveco Daily, Toyota Hilux, Ford Ranger, Volkswagen Amarok y Renault Master.",
+    detail: "Refuerzos para sobrecarga, reparto urbano y trabajo severo",
+    images: [
+      {
+        src: "/images/utilitarios-vans.png",
+        alt: "Mercedes Sprinter y Toyota Hilux en taller",
+        caption: "Mercedes Sprinter & Hilux",
+      },
+      {
+        src: "/images/detalle-elastico.png",
+        alt: "Paquete de elásticos y armado para utilitarios",
+        caption: "Recambio y hojas adicionales",
+      },
+      {
+        src: "/images/prod-bujes.png",
+        alt: "Bujes y silentblocks reforzados",
+        caption: "Bujes y amortiguadores",
+      },
+    ],
+  },
+  {
+    id: "semirremolques",
+    title: "Semirremolques & Bateas",
+    tag: "ARRASTRE · 2 Y 3 EJES",
+    description:
+      "Randon, Helvetica, Montenegro, Cormetal, Maldonado, Guerra, Lambert y bateas volcadoras.",
+    detail: "Balancines, bujes y suspensión pesada de 2 y 3 ejes",
+    images: [
+      {
+        src: "/images/semirremolques-bateas.png",
+        alt: "Bateas y tolvas graneleras en taller",
+        caption: "Bateas volcadoras y tolvas",
+      },
+      {
+        src: "/images/taller-interior.png",
+        alt: "Mantenimiento de ejes de arrastre",
+        caption: "Ejes balancines y suspensión",
+      },
+      {
+        src: "/images/hero-taller.png",
+        alt: "Curvado y forja de hojas pesadas",
+        caption: "Curvado en caliente",
+      },
+    ],
+  },
+]
 
-function VehicleCard({ vehicle }: { vehicle: VehicleGroup }) {\n  const [currentIdx, setCurrentIdx] = useState(0)\n\n  const handlePrev = (e: React.MouseEvent) => {\n    e.preventDefault()\n    e.stopPropagation()\n    setCurrentIdx((prev) => (prev === 0 ? vehicle.images.length - 1 : prev - 1))\n  }\n\n  const handleNext = (e: React.MouseEvent) => {\n    e.preventDefault()\n    e.stopPropagation()\n    setCurrentIdx((prev) => (prev === vehicle.images.length - 1 ? 0 : prev + 1))\n  }\n\n  const currentImage = vehicle.images[currentIdx]\n\n  return (\n    <div className=\"reveal flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:border-brand/40 hover:shadow-lg\">\n      <div className=\"group relative aspect-[16/11] w-full overflow-hidden bg-slate-900 sm:aspect-[4/3] lg:aspect-[16/11]\">\n        {vehicle.images.map((img, idx) => (\n          <div\n            key={img.src}\n            className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${\n              idx === currentIdx ? \"opacity-100\" : \"opacity-0 pointer-events-none\"\n            }`}\n          >\n            <Image\n              src={img.src}\n              alt={img.alt}\n              fill\n              sizes=\"(max-width: 1024px) 100vw, 33vw\"\n              className=\"object-cover transition-transform duration-700 group-hover:scale-105\"\n            />\n          </div>\n        ))}\n\n        <span className=\"absolute left-3.5 top-3.5 z-10 rounded-none bg-dark/95 px-3 py-1.5 text-[11px] font-bold text-brand backdrop-blur-sm shadow-md\">\n          {vehicle.tag}\n        </span>\n\n        <span className=\"absolute right-3.5 bottom-3.5 z-10 rounded-none bg-dark/85 px-2.5 py-1 text-[11px] font-semibold text-white/95 backdrop-blur-xs\">\n          {currentImage.caption} ({currentIdx + 1}/{vehicle.images.length})\n        </span>\n\n        {vehicle.images.length > 1 && (\n          <>\n            <button\n              onClick={handlePrev}\n              aria-label=\"Foto anterior\"\n              className=\"absolute left-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-none bg-dark/75 text-white opacity-90 backdrop-blur-xs transition-all hover:bg-brand hover:opacity-100\"\n            >\n              <ChevronLeft className=\"h-5 w-5\" />\n            </button>\n            <button\n              onClick={handleNext}\n              aria-label=\"Foto siguiente\"\n              className=\"absolute right-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-none bg-dark/75 text-white opacity-90 backdrop-blur-xs transition-all hover:bg-brand hover:opacity-100\"\n            >\n              <ChevronRight className=\"h-5 w-5\" />\n            </button>\n\n            <div className=\"absolute bottom-3.5 left-3.5 z-20 flex items-center gap-1.5\">\n              {vehicle.images.map((_, idx) => (\n                <button\n                  key={idx}\n                  onClick={(e) => {\n                    e.preventDefault()\n                    e.stopPropagation()\n                    setCurrentIdx(idx)\n                  }}\n                  aria-label={`Ver foto ${idx + 1}`}\n                  className={`h-2 transition-all ${\n                    idx === currentIdx ? \"w-6 bg-brand\" : \"w-2 bg-white/60 hover:bg-white\"\n                  }`}\n                />\n              ))}\n            </div>\n          </>\n        )}\n      </div>\n\n      <div className=\"flex flex-1 flex-col justify-between p-6 md:p-7\">\n        <div>\n          <h3 className=\"font-display text-xl font-bold text-dark md:text-2xl\">{vehicle.title}</h3>\n          <p className=\"mt-2.5 text-sm leading-relaxed text-slate-600\">{vehicle.description}</p>\n        </div>\n        <div className=\"mt-5 border-t border-slate-100 pt-3.5 text-xs font-bold text-brand\">\n          <span>{vehicle.detail}</span>\n        </div>\n      </div>\n    </div>\n  )\n}\n\nexport function VehicleCardsInteractive() {\n  return (\n    <div className=\"grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-2 md:mb-4\">\n      {VEHICLES.map((vehicle) => (\n        <VehicleCard key={vehicle.id} vehicle={vehicle} />\n      ))}\n    </div>\n  )\n}\n
+function VehicleCard({ vehicle }: { vehicle: VehicleGroup }) {
+  const [currentIdx, setCurrentIdx] = useState(0)
+
+  const handlePrev = (e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    setCurrentIdx((prev) => (prev === 0 ? vehicle.images.length - 1 : prev - 1))
+  }
+
+  const handleNext = (e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    setCurrentIdx((prev) => (prev === vehicle.images.length - 1 ? 0 : prev + 1))
+  }
+
+  const currentImage = vehicle.images[currentIdx]
+
+  return (
+    <div className="reveal flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:border-brand/40 hover:shadow-lg">
+      {/* Contenedor de Foto más Grande con Carrusel Interactivo */}
+      <div className="group relative aspect-[16/11] w-full overflow-hidden bg-slate-900 sm:aspect-[4/3] lg:aspect-[16/11]">
+        {vehicle.images.map((img, idx) => (
+          <div
+            key={img.src}
+            className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${
+              idx === currentIdx ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
+          >
+            <Image
+              src={img.src}
+              alt={img.alt}
+              fill
+              sizes="(max-width: 1024px) 100vw, 33vw"
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+          </div>
+        ))}
+
+        {/* Badge Superior */}
+        <span className="absolute left-3.5 top-3.5 z-10 rounded-none bg-dark/95 px-3 py-1.5 text-[11px] font-bold text-brand backdrop-blur-sm shadow-md">
+          {vehicle.tag}
+        </span>
+
+        {/* Pie de foto actual */}
+        <span className="absolute right-3.5 bottom-3.5 z-10 rounded-none bg-dark/85 px-2.5 py-1 text-[11px] font-semibold text-white/95 backdrop-blur-xs">
+          {currentImage.caption} ({currentIdx + 1}/{vehicle.images.length})
+        </span>
+
+        {/* Botones de navegación (Flechas) */}
+        {vehicle.images.length > 1 && (
+          <>
+            <button
+              onClick={handlePrev}
+              aria-label="Foto anterior"
+              className="absolute left-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-none bg-dark/75 text-white opacity-90 backdrop-blur-xs transition-all hover:bg-brand hover:opacity-100"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              onClick={handleNext}
+              aria-label="Foto siguiente"
+              className="absolute right-3 top-1/2 z-20 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-none bg-dark/75 text-white opacity-90 backdrop-blur-xs transition-all hover:bg-brand hover:opacity-100"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+
+            {/* Puntos / Indicadores inferiores */}
+            <div className="absolute bottom-3.5 left-3.5 z-20 flex items-center gap-1.5">
+              {vehicle.images.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    e.stopPropagation()
+                    setCurrentIdx(idx)
+                  }}
+                  aria-label={`Ver foto ${idx + 1}`}
+                  className={`h-2 transition-all ${
+                    idx === currentIdx ? "w-6 bg-brand" : "w-2 bg-white/60 hover:bg-white"
+                  }`}
+                />
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+
+      {/* Contenido de la Tarjeta más Espacioso */}
+      <div className="flex flex-1 flex-col justify-between p-6 md:p-7">
+        <div>
+          <h3 className="font-display text-xl font-bold text-dark md:text-2xl">{vehicle.title}</h3>
+          <p className="mt-2.5 text-sm leading-relaxed text-slate-600">{vehicle.description}</p>
+        </div>
+        <div className="mt-5 border-t border-slate-100 pt-3.5 text-xs font-bold text-brand">
+          <span>{vehicle.detail}</span>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export function VehicleCardsInteractive() {
+  return (
+    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-2 md:mb-4">
+      {VEHICLES.map((vehicle) => (
+        <VehicleCard key={vehicle.id} vehicle={vehicle} />
+      ))}
+    </div>
+  )
+}
