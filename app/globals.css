@@ -1,0 +1,548 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* ===== Elásticos 8 de Agosto — tokens de marca ===== */
+@theme {
+  --color-brand: #0088cc;
+  --color-brand-dark: #006ba3;
+  --color-dark: #0a192f;
+  --color-navy: #0f2947;
+  --color-whats: #128c4a;
+  --color-whats-dark: #0d6c39;
+  --color-alert: #dc2626;
+  --color-light: #f1f5f9;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-chakra), var(--font-inter), sans-serif;
+}
+
+:root {
+  color-scheme: light;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  color-scheme: dark;
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    color-scheme: dark;
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.556 0 0);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ==========================================================
+   Elásticos 8 de Agosto — estilos del sitio
+   ========================================================== */
+html {
+  scroll-behavior: smooth;
+  background: #ffffff;
+}
+body {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  color: #0a192f;
+}
+h1,
+h2,
+h3,
+h4,
+.font-display {
+  font-family: var(--font-chakra), 'Chakra Petch', sans-serif;
+}
+
+::selection {
+  background: #0088cc;
+  color: #fff;
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #0088cc;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ---------- Header ---------- */
+#site-header {
+  transition: transform 0.35s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+#site-header.is-scrolled {
+  box-shadow: 0 4px 24px rgba(10, 25, 47, 0.08);
+}
+#site-header.is-hidden {
+  transform: translateY(-105%);
+}
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: #0088cc;
+  transition: width 0.25s ease;
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+.nav-link.active {
+  color: #0088cc;
+}
+
+.leaf-mark {
+  /* Sin sombreado */
+}
+
+/* ---------- Hero ---------- */
+.hero-bg {
+  background-image: linear-gradient(
+      100deg,
+      rgba(10, 25, 47, 0.94) 0%,
+      rgba(10, 25, 47, 0.8) 30%,
+      rgba(10, 25, 47, 0.45) 60%,
+      rgba(10, 25, 47, 0.2) 100%
+    ),
+    url('/images/hero-taller.png');
+  background-size: cover;
+  background-position: center 55%;
+}
+.hero-badge {
+  color: #fdd835;
+  letter-spacing: 0.08em;
+}
+
+.page-hero-bg {
+  background-image: linear-gradient(
+      100deg,
+      rgba(10, 25, 47, 0.95) 0%,
+      rgba(10, 25, 47, 0.88) 45%,
+      rgba(10, 25, 47, 0.68) 100%
+    ),
+    url('/images/banner-ruta.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.page-hero-bg.relative.flex.items-center.justify-center.pt-24.text-center {
+  padding-bottom: calc(var(--spacing) * 24);
+}
+.pb-14 {
+  padding-bottom: calc(var(--spacing) * 24);
+}
+
+/* ---------- Texturas de sección ---------- */
+.section-navy {
+  background-color: #0f2947;
+  background-image: linear-gradient(rgba(15, 41, 71, 0.93), rgba(15, 41, 71, 0.97)),
+    url('/images/detalle-elastico.png');
+  background-size: cover;
+  background-position: center;
+}
+.section-gray {
+  background-color: #f1f5f9;
+}
+
+/* ---------- Reveal-on-scroll ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ---------- Cards ---------- */
+.solution-card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.solution-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -12px rgba(10, 25, 47, 0.18);
+}
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 34px -14px rgba(10, 25, 47, 0.2);
+  border-color: #0088cc;
+}
+.product-card .product-img {
+  transition: transform 0.5s ease;
+}
+.product-card:hover .product-img {
+  transform: scale(1.06);
+}
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 34px -14px rgba(10, 25, 47, 0.16);
+  border-color: #0088cc;
+}
+.value-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.value-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 34px -14px rgba(10, 25, 47, 0.14);
+}
+.quick-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.quick-card:hover {
+  transform: translateY(-5px);
+  border-color: #0088cc;
+  box-shadow: 0 16px 30px -14px rgba(10, 25, 47, 0.25);
+}
+
+/* ---------- Botones ---------- */
+.btn {
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease,
+    box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+.btn:active {
+  transform: translateY(0) scale(0.98);
+}
+.btn-whats {
+  background: #128c4a;
+}
+.btn-whats:hover {
+  background: #0d6c39;
+  box-shadow: 0 12px 24px -10px rgba(18, 140, 74, 0.7);
+}
+.btn-brand {
+  background: #0088cc;
+}
+.btn-brand:hover {
+  background: #006ba3;
+  box-shadow: 0 12px 24px -10px rgba(0, 136, 204, 0.7);
+}
+.btn-alert {
+  background: #dc2626;
+}
+.btn-alert:hover {
+  background: #b91c1c;
+  box-shadow: 0 12px 24px -10px rgba(220, 38, 38, 0.7);
+}
+.btn-outline-light:hover {
+  background: #ffffff;
+  color: #0a192f;
+  border-color: #ffffff;
+}
+.btn-ghost-dark:hover {
+  background: #0a192f;
+  color: #ffffff;
+  border-color: #0a192f;
+}
+.link-arrow span {
+  transition: transform 0.25s ease;
+  display: inline-block;
+}
+.link-arrow:hover span {
+  transform: translateX(5px);
+}
+
+/* ---------- Chips de filtro ---------- */
+.filter-chip {
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+.filter-chip:hover {
+  transform: translateY(-2px);
+}
+
+/* ---------- FAQ ---------- */
+details.faq summary {
+  list-style: none;
+  cursor: pointer;
+}
+details.faq summary::-webkit-details-marker {
+  display: none;
+}
+details.faq .chevron {
+  transition: transform 0.3s ease;
+}
+details.faq[open] .chevron {
+  transform: rotate(180deg);
+}
+details.faq[open] summary {
+  color: #0088cc;
+}
+
+.stat-watermark {
+  position: absolute;
+  inset: 0;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.footer-map iframe {
+  filter: grayscale(0.15) contrast(1.05);
+}
+
+/* ---------- WhatsApp flotante ---------- */
+.wa-float {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 50;
+  width: 60px;
+  height: 60px;
+  border-radius: 9999px;
+  background: #128c4a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(18, 140, 74, 0.5);
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+.wa-float:hover {
+  background: #0d6c39;
+  transform: scale(1.08);
+}
+.wa-float::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: #128c4a;
+  animation: wa-pulse 2.2s ease-out infinite;
+}
+@keyframes wa-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wa-float::before {
+    animation: none;
+  }
+  #site-header {
+    transition: none;
+  }
+}
+
+/* ---------- Menú mobile ---------- */
+#mobile-menu {
+  transition: max-height 0.35s ease, opacity 0.3s ease;
+}
+
+.founder-badge {
+  box-shadow: 0 12px 24px rgba(0, 136, 204, 0.35);
+}
+
+/* ---------- Marquee de marcas y logos ---------- */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+/* ---------- Parallax Taller ---------- */
+.parallax-taller {
+  background-image: linear-gradient(
+      135deg,
+      rgba(10, 25, 47, 0.90) 0%,
+      rgba(15, 41, 71, 0.85) 50%,
+      rgba(10, 25, 47, 0.92) 100%
+    ),
+    url('/images/taller-interior.png');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
