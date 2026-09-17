@@ -22,13 +22,13 @@ interface ProductFormModalProps {
 }
 
 const PRESET_IMAGES = [
-  { label: "Elásticos", url: "/images/prod-elasticos.png" },
-  { label: "Hojas", url: "/images/prod-hojas.png" },
-  { label: "Bujes", url: "/images/prod-bujes.png" },
-  { label: "Grampas", url: "/images/prod-grampas.png" },
-  { label: "Pernos", url: "/images/prod-pernos.png" },
-  { label: "Amortiguadores", url: "/images/prod-amortiguadores.png" },
-  { label: "Tensores", url: "/images/prod-tensores.png" },
+  { label: "Elásticos", url: "/images/prod-elasticos.webp" },
+  { label: "Hojas", url: "/images/prod-hojas.webp" },
+  { label: "Bujes", url: "/images/prod-bujes.webp" },
+  { label: "Grampas", url: "/images/prod-grampas.webp" },
+  { label: "Pernos", url: "/images/prod-pernos.webp" },
+  { label: "Amortiguadores", url: "/images/prod-amortiguadores.webp" },
+  { label: "Tensores", url: "/images/prod-tensores.webp" },
 ]
 
 export function ProductFormModal({
@@ -45,7 +45,7 @@ export function ProductFormModal({
   const [category, setCategory] = useState<CategoryId>("elasticos")
   const [brand, setBrand] = useState("Universal")
   const [desc, setDesc] = useState("")
-  const [image, setImage] = useState("/images/prod-elasticos.png")
+  const [image, setImage] = useState("/images/prod-elasticos.webp")
   const [inStock, setInStock] = useState(true)
 
   const [loading, setLoading] = useState(false)
@@ -73,7 +73,7 @@ export function ProductFormModal({
         setCategory(productToEdit.category)
         setBrand(productToEdit.brand || "Universal")
         setDesc(productToEdit.desc || "")
-        setImage(productToEdit.image || "/images/prod-elasticos.png")
+        setImage(productToEdit.image || "/images/prod-elasticos.webp")
         setInStock(productToEdit.in_stock !== false)
       } else {
         setName("")
@@ -81,7 +81,7 @@ export function ProductFormModal({
         setCategory(categories[0]?.id || "elasticos")
         setBrand("Universal")
         setDesc("")
-        setImage("/images/prod-elasticos.png")
+        setImage("/images/prod-elasticos.webp")
         setInStock(true)
       }
       setIsCreatingCat(false)

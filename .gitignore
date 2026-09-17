@@ -1,16 +1,35 @@
-# v0 sandbox internal files
+# Build outputs
+.next/
+out/
+dist/
+build/
+
+# Dependencies
+node_modules/
+
+# Environment variables
+.env*.local
+.env.production
+
+# AI Agent scratch & internal files
+scratch/
+skills-lock.json
+.agents/skills/catalog-manager/
+.agents/skills/deployment-verifier/
+.agents/skills/elasticos-db-sync/
+GEMINI.md
+AGENTS.md
+
+# v0 / Vercel sandbox internal files
 __v0_runtime_loader.js
 __v0_devtools.tsx
 __v0_jsx-dev-runtime.ts
 .snowflake/
 .v0-trash/
 .vercel/
+.codex/
 
-# Environment variables
-.env*.local
-
-# Common ignores
-node_modules
-.next/
+# OS junk
 .DS_Store
-scratch/
+Thumbs.db
+desktop.ini

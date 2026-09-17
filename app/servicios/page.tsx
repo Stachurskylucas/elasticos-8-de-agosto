@@ -27,28 +27,28 @@ export const metadata: Metadata = {
 // ============================================================
 const TALLER_FOTOS: WorkshopPhoto[] = [
   {
-    src: "/images/taller-interior.png",
+    src: "/images/taller-interior.webp",
     alt: "Fosas especializadas para camiones pesados 6x4 y 8x4",
     title: "FOSAS DE ALTA CAPACIDAD 6X4 & 8X4",
     desc: "Instalaciones pesadas preparadas para recibir camiones de gran porte, chasis 6x4, 8x4, acoplados y semirremolques.",
     tag: "INFRAESTRUCTURA",
   },
   {
-    src: "/images/hero-taller.png",
+    src: "/images/hero-taller.webp",
     alt: "Banco de forja y curvado de elásticos",
     title: "CURVADO Y TRABAJO EN CALIENTE",
     desc: "Prensas hidráulicas pesadas y hornos de forja para devolver la flecha, curvatura y resistencia original del acero.",
     tag: "MAQUINARIA",
   },
   {
-    src: "/images/detalle-elastico.png",
+    src: "/images/detalle-elastico.webp",
     alt: "Banco de trabajo con herramientas y repuestos de suspensión",
     title: "ARMADO Y RECAMBIO DE PAQUETES",
     desc: "Herramental específico para el desarme seguro y ajuste de grampas, pernos centrales y bujes de suspensión.",
     tag: "HERRAMENTAL",
   },
   {
-    src: "/images/banner-ruta.png",
+    src: "/images/banner-ruta.webp",
     alt: "Unidades en servicio y puesta a punto final",
     title: "ALINEACIÓN Y CONTROL FINAL",
     desc: "Nivelación exacta de ejes tándem y control integral de suspensión para máxima estabilidad en ruta y cuidado de neumáticos.",

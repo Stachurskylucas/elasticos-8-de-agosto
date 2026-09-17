@@ -27,17 +27,17 @@ const VEHICLES: VehicleGroup[] = [
     detail: "Ejes delanteros, traseros, nivelación y refuerzos tándem",
     images: [
       {
-        src: "/images/camiones-6x4-8x4.png",
+        src: "/images/camiones-6x4-8x4.webp",
         alt: "Camiones volcadores 6x4 y 8x4 en taller",
         caption: "Volcadores y chasis 6x4 / 8x4",
       },
       {
-        src: "/images/banner-ruta.png",
+        src: "/images/banner-ruta.webp",
         alt: "Flota de camiones pesados en ruta",
         caption: "Unidades de larga distancia",
       },
       {
-        src: "/images/taller-interior.png",
+        src: "/images/taller-interior.webp",
         alt: "Fosas especializadas para camiones pesados",
         caption: "Fosas para ejes tándem",
       },
@@ -52,17 +52,17 @@ const VEHICLES: VehicleGroup[] = [
     detail: "Refuerzos para sobrecarga, reparto urbano y trabajo severo",
     images: [
       {
-        src: "/images/utilitarios-vans.png",
+        src: "/images/utilitarios-vans.webp",
         alt: "Mercedes Sprinter y Toyota Hilux en taller",
         caption: "Mercedes Sprinter & Hilux",
       },
       {
-        src: "/images/detalle-elastico.png",
+        src: "/images/detalle-elastico.webp",
         alt: "Paquete de elásticos y armado para utilitarios",
         caption: "Recambio y hojas adicionales",
       },
       {
-        src: "/images/prod-bujes.png",
+        src: "/images/prod-bujes.webp",
         alt: "Bujes y silentblocks reforzados",
         caption: "Bujes y amortiguadores",
       },
@@ -77,17 +77,17 @@ const VEHICLES: VehicleGroup[] = [
     detail: "Balancines, bujes y suspensión pesada de 2 y 3 ejes",
     images: [
       {
-        src: "/images/semirremolques-bateas.png",
+        src: "/images/semirremolques-bateas.webp",
         alt: "Bateas y tolvas graneleras en taller",
         caption: "Bateas volcadoras y tolvas",
       },
       {
-        src: "/images/taller-interior.png",
+        src: "/images/taller-interior.webp",
         alt: "Mantenimiento de ejes de arrastre",
         caption: "Ejes balancines y suspensión",
       },
       {
-        src: "/images/hero-taller.png",
+        src: "/images/hero-taller.webp",
         alt: "Curvado y forja de hojas pesadas",
         caption: "Curvado en caliente",
       },

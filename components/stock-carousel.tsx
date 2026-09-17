@@ -19,28 +19,28 @@ export interface StockPhoto {
 // ============================================================
 export const DEFAULT_STOCK_PHOTOS: StockPhoto[] = [
   {
-    src: "/images/taller-interior.png",
+    src: "/images/taller-interior.webp",
     alt: "Estanterías de elásticos y repuestos en el taller",
     title: "ESTANTERÍAS DE STOCK PERMANENTE",
     desc: "Amplio stock de paquetes de elásticos completos y hojas de recambio ordenadas listas para entrega inmediata.",
     tag: "ESTANTERÍAS & DEPÓSITO",
   },
   {
-    src: "/images/detalle-elastico.png",
+    src: "/images/detalle-elastico.webp",
     alt: "Paquetes armados y hojas de recambio clasificadas",
     title: "HOJAS Y ACCESORIOS CLASIFICADOS",
     desc: "Disponibilidad continua de hojas maestras, bujes silentblock, pernos y grampas para todas las marcas.",
     tag: "REPUESTOS EN STOCK",
   },
   {
-    src: "/images/hero-taller.png",
+    src: "/images/hero-taller.webp",
     alt: "Sector de almacenamiento y armado en fosa",
     title: "SECTOR DE ARMADO Y CONTROL",
     desc: "Materiales certificados listos para ser colocados o despachados en el día hacia todo el país.",
     tag: "INFRAESTRUCTURA",
   },
   {
-    src: "/images/banner-ruta.png",
+    src: "/images/banner-ruta.webp",
     alt: "Despacho de repuestos para unidades pesadas",
     title: "DESPACHO DIRECTO DE REPUESTOS",
     desc: "Envíos directos a expresos y atención inmediata en mostrador para transportistas y empresas de flota.",

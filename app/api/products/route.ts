@@ -31,7 +31,7 @@ export async function POST(request: Request) {
       name: body.name,
       category: body.category,
       desc: body.desc || "",
-      image: body.image || "/images/prod-elasticos.png",
+      image: body.image || "/images/prod-elasticos.webp",
       in_stock: body.in_stock !== false,
       price: body.price ? Number(body.price) : null,
     })

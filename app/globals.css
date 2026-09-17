@@ -253,7 +253,7 @@ summary:focus-visible {
       rgba(10, 25, 47, 0.45) 60%,
       rgba(10, 25, 47, 0.2) 100%
     ),
-    url('/images/hero-taller.png');
+    url('/images/hero-taller.webp');
   background-size: cover;
   background-position: center 55%;
 }
@@ -269,7 +269,7 @@ summary:focus-visible {
       rgba(10, 25, 47, 0.88) 45%,
       rgba(10, 25, 47, 0.68) 100%
     ),
-    url('/images/banner-ruta.png');
+    url('/images/banner-ruta.webp');
   background-size: cover;
   background-position: center;
 }
@@ -285,7 +285,7 @@ summary:focus-visible {
 .section-navy {
   background-color: #0f2947;
   background-image: linear-gradient(rgba(15, 41, 71, 0.93), rgba(15, 41, 71, 0.97)),
-    url('/images/detalle-elastico.png');
+    url('/images/detalle-elastico.webp');
   background-size: cover;
   background-position: center;
 }
@@ -531,7 +531,7 @@ details.faq[open] summary {
       rgba(15, 41, 71, 0.85) 50%,
       rgba(10, 25, 47, 0.92) 100%
     ),
-    url('/images/taller-interior.png');
+    url('/images/taller-interior.webp');
   background-attachment: fixed;
   background-size: cover;
   background-position: center;

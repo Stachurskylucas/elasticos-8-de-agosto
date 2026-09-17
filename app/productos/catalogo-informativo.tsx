@@ -43,7 +43,7 @@ const PRODUCT_LINES: ProductLine[] = [
     title: "Elásticos Completos Armados",
     subtitle: "Delanteros y traseros listos para colocar",
     category: "elasticos",
-    image: "/images/prod-elasticos.png",
+    image: "/images/prod-elasticos.webp",
     tag: COMMON_TAG,
     description:
       "Paquetes de elásticos completos ensamblados bajo estrictas normas de resistencia. Disponibles en configuración estándar o reforzada según el peso y exigencia de la unidad.",
@@ -66,7 +66,7 @@ const PRODUCT_LINES: ProductLine[] = [
     title: "Hojas de Recambio Sueltas y Refuerzos",
     subtitle: "Hojas maestras, secundarias y de refuerzo",
     category: "elasticos",
-    image: "/images/prod-hojas.png",
+    image: "/images/prod-hojas.webp",
     tag: COMMON_TAG,
     description:
       "Hojas sueltas para sustitución inmediata por rotura o para agregar capacidad de carga a paquetes existentes. Mantenemos una amplia variedad de medidas, anchos y espesores.",
@@ -89,7 +89,7 @@ const PRODUCT_LINES: ProductLine[] = [
     title: "Grampas, Abrazaderas U y Placas",
     subtitle: "Fijación crítica de alta resistencia",
     category: "fijacion",
-    image: "/images/prod-grampas.png",
+    image: "/images/prod-grampas.webp",
     tag: COMMON_TAG,
     description:
       "Grampas U en aceros tratados térmicamente para resistir las mayores torsiones y cargas de tracción sobre el eje. Se entregan con tuercas altas y arandelas especiales.",
@@ -112,7 +112,7 @@ const PRODUCT_LINES: ProductLine[] = [
     title: "Bujes de Goma, Poliuretano y Bronce",
     subtitle: "Absorción de impacto y cero ruidos",
     category: "fijacion",
-    image: "/images/prod-bujes.png",
+    image: "/images/prod-bujes.webp",
     tag: COMMON_TAG,
     description:
       "Bujes diseñados para aislar vibraciones, absorber los golpes del camino y garantizar el alineamiento correcto de los ojos del elástico con los soportes de chasis.",
@@ -135,7 +135,7 @@ const PRODUCT_LINES: ProductLine[] = [
     title: "Pernos Centrales, Grilletes y Gemelos",
     subtitle: "Componentes de articulación",
     category: "fijacion",
-    image: "/images/prod-pernos.png",
+    image: "/images/prod-pernos.webp",
     tag: COMMON_TAG,
     description:
       "Pernos de centro (capuchinos) cementados y rectificados, grilletes forjados, pernos pasantes con canal de engrase y tuercas autofrenantes para armado seguro.",
@@ -158,7 +158,7 @@ const PRODUCT_LINES: ProductLine[] = [
     title: "Amortiguadores y Tensores de Suspensión",
     subtitle: "Estabilidad en curva y control dinámico",
     category: "amortiguacion",
-    image: "/images/prod-amortiguadores.png",
+    image: "/images/prod-amortiguadores.webp",
     tag: COMMON_TAG,
     description:
       "Línea de amortiguadores pesados de doble efecto y tensores de eje regulables y fijos para asegurar el guiado perfecto de los ejes y evitar el desgaste prematuro de neumáticos.",
@@ -190,28 +190,28 @@ const CATEGORIES = [
 // ============================================================
 const LARGE_STOCK_SLIDES = [
   {
-    src: "/images/taller-interior.png",
+    src: "/images/taller-interior.webp",
     alt: "Estanterías de elásticos y repuestos en el taller",
     title: "ESTANTERÍAS DE STOCK PERMANENTE",
     subtitle: "Paquetes armados y repuestos listos para entrega inmediata",
     tag: "ESTANTERÍAS & DEPÓSITO",
   },
   {
-    src: "/images/detalle-elastico.png",
+    src: "/images/detalle-elastico.webp",
     alt: "Hojas de recambio y accesorios clasificados en estante",
     title: "HOJAS SUELTAS & ACCESORIOS CLASIFICADOS",
     subtitle: "Hojas maestras, secundarias, bujes y grampas por marca y modelo",
     tag: "REPUESTOS EN STOCK",
   },
   {
-    src: "/images/hero-taller.png",
+    src: "/images/hero-taller.webp",
     alt: "Sector de almacenamiento pesado y fosas",
     title: "SECTOR DE ALMACENAMIENTO & FOSAS",
     subtitle: "Capacidad pesada para provisión, recambio y alineación en el día",
     tag: "INFRAESTRUCTURA",
   },
   {
-    src: "/images/banner-ruta.png",
+    src: "/images/banner-ruta.webp",
     alt: "Despacho y logística de suspensión pesada",
     title: "LOGÍSTICA DE DESPACHO A TODO EL PAÍS",
     subtitle: "Envíos directos a expresos en el día para todas las provincias",

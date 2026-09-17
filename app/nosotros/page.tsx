@@ -81,7 +81,7 @@ export default function NosotrosPage() {
             <div className="reveal relative order-1 lg:order-2">
               <div className="relative h-[420px] overflow-hidden rounded-2xl shadow-xl">
                 <Image
-                  src="/images/detalle-elastico.png"
+                  src="/images/detalle-elastico.webp"
                   alt="Herramientas y banco de trabajo del taller"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
