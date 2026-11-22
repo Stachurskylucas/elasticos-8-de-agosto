@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useEffect, useRef, useState } from "react"
@@ -48,23 +49,21 @@ export function SiteHeader() {
       <div className="h-1 w-full bg-gradient-to-r from-brand via-dark to-brand" />
 
       <div className="mx-auto flex h-[68px] max-w-7xl items-center justify-between gap-4 px-5 md:px-8 lg:h-20">
-        {/* Logo */}
-        <Link href="/" className="group flex items-center gap-3">
-          <span className="leaf-mark flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-dark">
-            <svg viewBox="0 0 32 32" className="h-6 w-6" fill="none" aria-hidden="true">
-              <path d="M4 12C10 8 22 8 28 12" stroke="#0088cc" strokeWidth="2.4" strokeLinecap="round" />
-              <path d="M4 17C10 13.5 22 13.5 28 17" stroke="#ffffff" strokeWidth="2.4" strokeLinecap="round" />
-              <path d="M4 22C10 19 22 19 28 22" stroke="#0088cc" strokeWidth="2.4" strokeLinecap="round" />
-            </svg>
-          </span>
-          <span className="leading-tight">
-            <span className="block font-display text-xl font-bold tracking-tight text-dark md:text-2xl">
-              ELÁSTICOS
-            </span>
-            <span className="block font-display text-[11px] font-medium tracking-[0.25em] text-brand md:text-xs">
-              8 DE AGOSTO
-            </span>
-          </span>
+        {/* Logo — solo isotipo grande sin texto ni recuadro */}
+        <Link
+          href="/"
+          className="flex items-center transition-transform duration-200 hover:scale-[1.03]"
+          aria-label="Elásticos 8 de Agosto - Inicio"
+        >
+          <Image
+            src="/images/logo-icon.png"
+            alt="Elásticos 8 de Agosto"
+            width={160}
+            height={83}
+            className="h-12 w-auto object-contain sm:h-13 md:h-14 lg:h-16"
+            priority
+          />
+          <span className="sr-only">Elásticos 8 de Agosto</span>
         </Link>
 
         {/* Nav desktop */}

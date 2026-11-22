@@ -131,42 +131,8 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not(.light) {
-    color-scheme: dark;
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.205 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
-    --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --sidebar: oklch(0.205 0 0);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.269 0 0);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.556 0 0);
-  }
-}
+/* Dark mode values defined in .dark above — no duplicate media query needed
+   since this site uses explicit light mode only */
 
 @layer base {
   * {
@@ -181,7 +147,6 @@
    Elásticos 8 de Agosto — estilos del sitio
    ========================================================== */
 html {
-  scroll-behavior: smooth;
   background: #ffffff;
 }
 body {
@@ -240,9 +205,7 @@ summary:focus-visible {
   color: #0088cc;
 }
 
-.leaf-mark {
-  /* Sin sombreado */
-}
+
 
 /* ---------- Hero ---------- */
 .hero-bg {
@@ -257,10 +220,7 @@ summary:focus-visible {
   background-size: cover;
   background-position: center 55%;
 }
-.hero-badge {
-  color: #fdd835;
-  letter-spacing: 0.08em;
-}
+
 
 .page-hero-bg {
   background-image: linear-gradient(
@@ -274,12 +234,7 @@ summary:focus-visible {
   background-position: center;
 }
 
-.page-hero-bg.relative.flex.items-center.justify-center.pt-24.text-center {
-  padding-bottom: calc(var(--spacing) * 24);
-}
-.pb-14 {
-  padding-bottom: calc(var(--spacing) * 24);
-}
+
 
 /* ---------- Texturas de sección ---------- */
 .section-navy {
@@ -545,4 +500,219 @@ details.faq[open] summary {
 .no-scrollbar {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+}
+
+/* Custom Page Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a; /* slate-900 */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1d63ff; /* brand color */
+  border-radius: 5px;
+  border: 2px solid #0f172a; /* matches track for padding effect */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2563eb; /* hover state */
+}
+
+/* ==========================================================
+   Qué vendemos — elástico 3D que se desarma con el scroll
+   (--p lo escribe components/scroll-fx.tsx)
+   ========================================================== */
+.parts {
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --e: clamp(0, calc((var(--p, 1) - 0.13) * 7.5), 1);
+  height: 400vh;
+}
+.parts-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100dvh;
+}
+.parts-bar {
+  transform-origin: 0 0;
+  transform: scaleY(var(--p, 1));
+}
+.part-body {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: grid-template-rows 0.6s var(--ease), opacity 0.45s ease;
+}
+.part-title {
+  color: #0a192f;
+  transition: color 0.4s ease;
+}
+.parts[data-step] .part-title {
+  color: #a8b3c2;
+}
+.parts[data-step] .part-body {
+  grid-template-rows: 0fr;
+  opacity: 0;
+}
+.parts[data-step="0"] .part[data-i="0"] .part-title,
+.parts[data-step="1"] .part[data-i="1"] .part-title,
+.parts[data-step="2"] .part[data-i="2"] .part-title,
+.parts[data-step="3"] .part[data-i="3"] .part-title {
+  color: #0a192f;
+}
+.parts .part:hover .part-title {
+  color: #0088cc;
+}
+.parts[data-step="0"] .part[data-i="0"] .part-body,
+.parts[data-step="1"] .part[data-i="1"] .part-body,
+.parts[data-step="2"] .part[data-i="2"] .part-body,
+.parts[data-step="3"] .part[data-i="3"] .part-body {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.part-shot {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.parts:not([data-step]) .part-shot[data-i="0"],
+.parts[data-step="0"] .part-shot[data-i="0"],
+.parts[data-step="1"] .part-shot[data-i="1"],
+.parts[data-step="2"] .part-shot[data-i="2"],
+.parts[data-step="3"] .part-shot[data-i="3"] {
+  opacity: 1;
+}
+
+.ls-stage {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+.ls-scale {
+  width: 0;
+  height: 0;
+  scale: var(--ls-scale, 0.44);
+  perspective: 1500px;
+}
+@media (min-width: 640px) {
+  .ls-scale {
+    --ls-scale: 0.7;
+  }
+}
+@media (min-width: 1024px) {
+  .ls-scale {
+    --ls-scale: 0.74;
+  }
+}
+@media (min-width: 1280px) {
+  .ls-scale {
+    --ls-scale: 0.92;
+  }
+}
+.ls,
+.ls-g {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-style: preserve-3d;
+}
+.ls {
+  --top: #8894a2;
+  --front: #3d4854;
+  --side: #2a333d;
+  transform: translate3d(0, calc(-30px - var(--e) * 50px), 0) rotateX(calc(-17deg - var(--e) * 7deg))
+    rotateY(calc(-36deg + var(--p, 0.62) * 66deg));
+  will-change: transform;
+}
+.ls i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  transform-origin: 0 0;
+  transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+.ls-t {
+  background-color: color-mix(in oklab, var(--top), #fff calc(var(--l, 0) * 1.3%));
+}
+.ls-f {
+  background-color: var(--front);
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(0, 0, 0, 0.2));
+}
+.ls-c {
+  background-color: var(--side);
+}
+.ls-ring {
+  border: 7px solid var(--front);
+  border-radius: 50%;
+}
+.ls-ring-front {
+  border-color: var(--top);
+}
+.ls-rubber {
+  border: 4px solid var(--rub, #11161c);
+  border-radius: 50%;
+  background: radial-gradient(circle, #f1f5f9 0 34%, var(--sleeve, #9aa5b1) 36% 52%, transparent 54%);
+}
+.ls-rubber-front {
+  border-color: var(--rub-hi, #2b333c);
+}
+.ls-u {
+  border: 6px solid var(--front);
+  border-bottom: 0;
+  border-radius: 24px 24px 0 0;
+}
+.ls-shadow {
+  background: radial-gradient(closest-side, rgba(10, 25, 47, 0.2), transparent);
+}
+/* Despiece guiado por --e */
+.ls-leaf {
+  transform: translate3d(0, calc(var(--i) * var(--e) * 27px), 0);
+  transition: translate 0.7s var(--ease);
+}
+.ls-plate {
+  transform: translate3d(0, calc(var(--e) * 215px), 0);
+}
+.ls-ubolt {
+  transform: translate3d(0, calc(var(--e) * -105px), 0);
+}
+.ls-bolt {
+  transform: translate3d(0, calc(var(--e) * -185px), 0);
+}
+.ls-bush {
+  transform: translate3d(0, 0, calc(var(--e) * 78px));
+  transition: translate 0.7s var(--ease);
+}
+/* Pieza resaltada según el paso */
+.parts[data-step="1"] .ls-leaf[data-i="3"] {
+  --top: #33a6e6;
+  --front: #0088cc;
+  --side: #006ba3;
+  translate: 0 0 74px;
+}
+.parts[data-step="2"] :is(.ls-ubolt, .ls-bolt, .ls-plate) {
+  --top: #33a6e6;
+  --front: #0088cc;
+  --side: #006ba3;
+}
+.parts[data-step="3"] .ls-bush {
+  --rub: #0088cc;
+  --rub-hi: #33a6e6;
+  --sleeve: #cfe6f5;
+  translate: 0 0 46px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .parts {
+    height: auto;
+  }
+  .parts-sticky {
+    position: static;
+    height: auto;
+    min-height: 100vh;
+  }
 }

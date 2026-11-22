@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Clock, Mail, MapPin, Phone } from "lucide-react"
@@ -27,13 +28,12 @@ export function SiteFooter() {
         {/* Contacto + mapa */}
         <div className="grid gap-10 border-b border-white/10 pb-14 lg:grid-cols-2">
           <div className="reveal">
-            <p className="mb-3 text-sm font-bold tracking-[0.2em] text-brand">HABLEMOS</p>
+            <p className="mb-3 text-sm font-bold tracking-[0.2em] text-brand">CONTACTO</p>
             <h2 className="mb-5 font-display text-3xl font-bold leading-tight text-white md:text-4xl">
-              ¿LISTO PARA VOLVER A LA RUTA?
+              ¿NECESITÁS UN REPUESTO O TRAER EL CAMIÓN?
             </h2>
             <p className="mb-8 max-w-md leading-relaxed text-white/60">
-              Escribinos para cotizar repuestos con envío, o vení directo al taller. Resolvemos
-              rápido.
+              Pedí precio por WhatsApp o vení directo al taller, en Pablo Podestá.
             </p>
 
             <div className="flex flex-col gap-5">
@@ -59,7 +59,7 @@ export function SiteFooter() {
                 </span>
                 <div>
                   <p className="mb-0.5 text-xs font-bold tracking-widest text-white/40">
-                    TALLER FÍSICO
+                    DIRECCIÓN
                   </p>
                   <p className="font-display text-lg font-bold text-white">{ADDRESS}</p>
                 </div>
@@ -70,7 +70,7 @@ export function SiteFooter() {
                 </span>
                 <div>
                   <p className="mb-0.5 text-xs font-bold tracking-widest text-white/40">
-                    CORREO ELECTRÓNICO
+                    EMAIL
                   </p>
                   <a
                     href={`mailto:${EMAIL}`}
@@ -117,24 +117,24 @@ export function SiteFooter() {
         {/* Columnas */}
         <div className="grid gap-10 border-b border-white/10 py-12 md:grid-cols-3">
           <div>
-            <div className="mb-4 flex items-center gap-3">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/10">
-                <svg viewBox="0 0 32 32" className="h-[22px] w-[22px]" fill="none" aria-hidden="true">
-                  <path d="M4 12C10 8 22 8 28 12" stroke="#0088cc" strokeWidth="2.4" strokeLinecap="round" />
-                  <path d="M4 17C10 13.5 22 13.5 28 17" stroke="#ffffff" strokeWidth="2.4" strokeLinecap="round" />
-                  <path d="M4 22C10 19 22 19 28 22" stroke="#0088cc" strokeWidth="2.4" strokeLinecap="round" />
-                </svg>
-              </span>
-              <span className="leading-tight">
-                <span className="block font-display text-lg font-bold text-white">ELÁSTICOS</span>
-                <span className="block font-display text-[10px] tracking-[0.25em] text-brand">
-                  8 DE AGOSTO
-                </span>
-              </span>
+            <div className="mb-5">
+              <Link
+                href="/"
+                aria-label="Elásticos 8 de Agosto"
+                className="inline-block transition-transform duration-200 hover:scale-[1.02]"
+              >
+                <Image
+                  src="/images/logo-full-white.png"
+                  alt="Elásticos 8 de Agosto"
+                  width={180}
+                  height={150}
+                  className="h-16 w-auto object-contain sm:h-18 md:h-20 transition-opacity hover:opacity-90"
+                />
+              </Link>
             </div>
-            <p className="max-w-xs text-sm leading-relaxed text-white/50">
-              Especialistas en elásticos y suspensión para camiones y vehículos pesados. Más de 30
-              años de experiencia en el rubro.
+            <p className="max-w-xs text-sm leading-relaxed text-white/60">
+              Taller en Pablo Podestá. Hace más de 30 años que vendemos y reparamos
+              elásticos, hojas, bujes y grampas para camiones.
             </p>
           </div>
 

@@ -1,9 +1,12 @@
 import { NextResponse } from "next/server"
+import { exigirAdmin } from "@/lib/admin-session"
 import { bulkIncreasePrices } from "@/lib/db/products"
 
 export const dynamic = "force-dynamic"
 
 export async function POST(request: Request) {
+    const noAutorizado = await exigirAdmin(request)
+    if (noAutorizado) return noAutorizado
   try {
     const body = await request.json()
     const percentage = Number(body.percentage)

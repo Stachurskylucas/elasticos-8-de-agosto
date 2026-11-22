@@ -214,12 +214,11 @@ export function LegalModal({ isOpen, onClose, initialTab = "privacidad" }: Legal
 
               <div>
                 <h3 className="mb-2 font-display text-base font-bold text-dark">
-                  4. Garantía de Repuestos y Reparaciones
+                  4. Calidad de Materiales e Instalación
                 </h3>
                 <p>
-                  Garantizamos la calidad del acero y los repuestos provistos de fábrica, así como la
-                  correcta instalación mecánica. La garantía cubre defectos de fabricación y mano de
-                  obra bajo condiciones normales de carga y uso reglamentario de la unidad.
+                  Aseguramos la máxima calidad en los aceros y piezas utilizadas, así como la
+                  correcta instalación mecánica en fosa bajo condiciones normales de carga y uso reglamentario de la unidad.
                 </p>
               </div>
 

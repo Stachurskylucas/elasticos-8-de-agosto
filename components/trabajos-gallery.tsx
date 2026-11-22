@@ -60,6 +60,30 @@ const TRABAJOS_FOTOS: WorkPhoto[] = [
     alt: "Bujes vulcanizados y amortiguadores",
     badge: "BUJES & SILENTBLOCKS",
   },
+  {
+    id: "trabajo-9",
+    src: "/images/taller/camion-volcador.webp",
+    alt: "Camión volcador Ford Cargo en el taller",
+    badge: "VOLCADORES",
+  },
+  {
+    id: "trabajo-10",
+    src: "/images/taller/utilitario-elevador.webp",
+    alt: "Utilitario Iveco sobre el elevador del taller",
+    badge: "UTILITARIOS EN ELEVADOR",
+  },
+  {
+    id: "trabajo-11",
+    src: "/images/taller/elastico-prensa.webp",
+    alt: "Elástico en la prensa durante la reparación",
+    badge: "REPARACIÓN DE ELÁSTICOS",
+  },
+  {
+    id: "trabajo-12",
+    src: "/images/taller/rack-elasticos-1.webp",
+    alt: "Elásticos con bujes listos para entregar",
+    badge: "ELÁSTICOS EN STOCK",
+  },
 ]
 
 export function TrabajosGallery() {

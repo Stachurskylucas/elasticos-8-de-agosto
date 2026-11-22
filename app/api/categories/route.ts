@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server"
+import { exigirAdmin } from "@/lib/admin-session"
 import { createCategory, deleteCategory, getAllCategories } from "@/lib/db/categories"
 
 export const dynamic = "force-dynamic"
@@ -16,6 +17,8 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
+    const noAutorizado = await exigirAdmin(request)
+    if (noAutorizado) return noAutorizado
   try {
     const body = await request.json()
 
@@ -41,6 +44,8 @@ export async function POST(request: Request) {
 }
 
 export async function DELETE(request: Request) {
+    const noAutorizado = await exigirAdmin(request)
+    if (noAutorizado) return noAutorizado
   try {
     const { searchParams } = new URL(request.url)
     const id = searchParams.get("id")

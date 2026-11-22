@@ -31,6 +31,19 @@ const PRESET_IMAGES = [
   { label: "Tensores", url: "/images/prod-tensores.webp" },
 ]
 
+const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>, setImage: (url: string) => void) => {
+  const file = e.target.files?.[0]
+  if (!file) return
+
+  const reader = new FileReader()
+  reader.onload = (event) => {
+    if (event.target?.result) {
+      setImage(event.target.result as string)
+    }
+  }
+  reader.readAsDataURL(file)
+}
+
 export function ProductFormModal({
   isOpen,
   onClose,
@@ -375,17 +388,31 @@ export function ProductFormModal({
                     className="object-cover"
                   />
                 </div>
-                <div className="flex-1">
-                  <label className="mb-1 block text-[11px] font-bold uppercase text-slate-400">
-                    O ingresá una URL personalizada
-                  </label>
-                  <input
-                    type="text"
-                    value={image}
-                    onChange={(e) => setImage(e.target.value)}
-                    placeholder="https://ejemplo.com/foto.jpg"
-                    className="w-full rounded-xl border border-white/15 bg-white/5 px-3 py-2 text-xs text-white outline-none placeholder:text-slate-500 focus:border-brand"
-                  />
+                <div className="flex-1 flex gap-2">
+                  <div className="flex-1">
+                    <label className="mb-1 block text-[11px] font-bold uppercase text-slate-400">
+                      URL de la imagen
+                    </label>
+                    <input
+                      type="text"
+                      value={image}
+                      onChange={(e) => setImage(e.target.value)}
+                      placeholder="https://ejemplo.com/foto.jpg"
+                      className="w-full rounded-xl border border-white/15 bg-white/5 px-3 py-2 text-xs text-white outline-none placeholder:text-slate-500 focus:border-brand"
+                    />
+                  </div>
+                  <div className="shrink-0 flex items-end">
+                    <label className="cursor-pointer flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-4 py-2 h-[34px] text-xs font-bold text-slate-300 hover:bg-white/10 hover:text-white transition-colors">
+                      <ImageIcon className="h-4 w-4 mr-1.5" />
+                      SUBIR FOTO
+                      <input
+                        type="file"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={(e) => handleImageUpload(e, setImage)}
+                      />
+                    </label>
+                  </div>
                 </div>
               </div>
 

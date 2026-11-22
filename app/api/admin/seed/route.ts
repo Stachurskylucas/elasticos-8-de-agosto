@@ -1,10 +1,13 @@
 import { NextResponse } from "next/server"
+import { exigirAdmin } from "@/lib/admin-session"
 import { seedInitialProducts } from "@/lib/db/products"
 import { isServerSupabaseConfigured } from "@/lib/supabase/server"
 
 export const dynamic = "force-dynamic"
 
-export async function POST() {
+export async function POST(request: Request) {
+  const noAutorizado = await exigirAdmin(request)
+  if (noAutorizado) return noAutorizado
   try {
     if (!isServerSupabaseConfigured) {
       return NextResponse.json(
