@@ -2,6 +2,7 @@
 // DATOS DE CONTACTO — cambialos acá una sola vez y se
 // actualizan en TODAS las páginas del sitio.
 // ============================================================
+export const SITE_URL = "https://elasticos8deagosto.com.ar"
 export const WHATSAPP_NUMBER = "5491146690000" // sin +, sin espacios
 export const PHONE_DISPLAY = "(011) 4669-0000"
 export const PHONE_TEL = "+541146690000"

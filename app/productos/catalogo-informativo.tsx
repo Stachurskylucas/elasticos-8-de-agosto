@@ -211,17 +211,35 @@ const LARGE_STOCK_SLIDES = [
   },
 ]
 
-export function CatalogoInformativo() {
+type Brand = { id: string; name: string }
+
+/**
+ * Recibe los datos ya cargados en el servidor (así los productos quedan en el HTML para Google)
+ * y después los refresca en el navegador.
+ */
+export function CatalogoInformativo({
+  initialProducts = [],
+  initialCategories = [],
+  initialBrands = [],
+}: {
+  initialProducts?: Product[]
+  initialCategories?: Category[]
+  initialBrands?: Brand[]
+} = {}) {
   const [selectedCat, setSelectedCat] = useState("todos")
   const [selectedBrand, setSelectedBrand] = useState("todas")
   const [search, setSearch] = useState("")
 
   const [expandedProduct, setExpandedProduct] = useState<Product | null>(null)
 
-  const [products, setProducts] = useState<Product[]>([])
-  const [categories, setCategories] = useState<Category[]>([])
-  const [brands, setBrands] = useState<{ id: string; name: string }[]>([])
-  const [loading, setLoading] = useState(true)
+  const [products, setProducts] = useState<Product[]>(initialProducts)
+  const [categories, setCategories] = useState<Category[]>(
+    initialCategories.length ? [{ id: "todos", label: "TODO" }, ...initialCategories] : [],
+  )
+  const [brands, setBrands] = useState<Brand[]>(
+    initialBrands.length ? [{ id: "todas", name: "Todas" }, ...initialBrands] : [],
+  )
+  const [loading, setLoading] = useState(initialProducts.length === 0)
 
   useEffect(() => {
     async function loadData() {
@@ -235,9 +253,11 @@ export function CatalogoInformativo() {
         const dataC = await resC.json()
         const dataB = await resB.json()
 
-        setProducts(dataP.products || [])
-        setCategories([{ id: "todos", label: "TODO" }, ...(dataC.categories || [])])
-        setBrands([{ id: "todas", name: "Todas" }, ...(dataB.brands || [])])
+        // Si una API falla, se conserva lo que vino del servidor en vez de vaciar el catálogo.
+        if (resP.ok && Array.isArray(dataP.products)) setProducts(dataP.products)
+        if (resC.ok && Array.isArray(dataC.categories))
+          setCategories([{ id: "todos", label: "TODO" }, ...dataC.categories])
+        if (resB.ok && Array.isArray(dataB.brands)) setBrands([{ id: "todas", name: "Todas" }, ...dataB.brands])
       } catch (e) {
         console.error(e)
       } finally {
@@ -576,7 +596,7 @@ export function CatalogoInformativo() {
                       alt={slide.alt}
                       fill
                       sizes="(max-width: 1280px) 100vw, 1200px"
-                      priority={index === 0}
+                      preload={index === 0}
                       className="object-cover"
                     />
 

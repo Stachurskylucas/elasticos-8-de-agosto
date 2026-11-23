@@ -68,19 +68,29 @@ function mapToSupabase(product: Partial<Product>) {
   if (product.cuotas_sin_interes !== undefined) result.cuotas_sin_interes = Boolean(product.cuotas_sin_interes)
   if (product.mostrar_precio !== undefined) result.mostrar_precio = Boolean(product.mostrar_precio)
 
-  // Calcular precio final para guardarlo en la columna price
-  const finalPrice = calculateProductPrice({
-    costo: result.costo,
-    margen: result.margen,
-    precio_manual: result.precio_manual,
-    descuento: result.descuento,
-    mostrar_precio: result.mostrar_precio,
-    price: product.price,
-  })
-  result.price = finalPrice
+  // Recalcular la columna price solo si el cambio toca algún dato de precio. En una edición parcial
+  // (por ejemplo, solo el stock) recalcular con campos vacíos dejaba el precio guardado en null.
+  const tocaPrecio = (["costo", "margen", "precio_manual", "descuento", "mostrar_precio", "price"] as const).some(
+    (k) => product[k] !== undefined,
+  )
+  if (tocaPrecio) {
+    result.price = calculateProductPrice({
+      costo: result.costo,
+      margen: result.margen,
+      precio_manual: result.precio_manual,
+      descuento: result.descuento,
+      mostrar_precio: result.mostrar_precio,
+      price: product.price,
+    })
+  }
 
   result.updated_at = new Date().toISOString()
   return result
+}
+
+/** Versión pública de un producto: sin costo, margen ni precio manual (datos internos del taller). */
+export function publicProduct({ costo: _c, margen: _m, precio_manual: _pm, ...rest }: Product): Product {
+  return rest
 }
 
 /**

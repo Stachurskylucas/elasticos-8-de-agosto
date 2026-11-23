@@ -1,3 +1,4 @@
+import { preload } from "react-dom"
 import Image from "next/image"
 import Link from "next/link"
 import { Boxes, Check, Wrench } from "lucide-react"
@@ -47,6 +48,9 @@ const FAQS = [
 ]
 
 export default function HomePage() {
+  // La foto del hero es un background CSS: sin esto el navegador la descubre tarde (LCP).
+  preload("/images/hero-taller.webp", { as: "image", fetchPriority: "high" })
+
   return (
     <>
       {/* ============ HERO ============ */}

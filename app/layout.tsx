@@ -51,17 +51,19 @@ export const metadata: Metadata = {
     title: "Elásticos 8 de Agosto | Suspensión para camiones de carga pesada",
     description:
       "Venta y reparación de elásticos para camiones 6x4 y 8x4. Taller propio en Pablo Podestá, Buenos Aires. Más de 30 años en el rubro.",
-    images: [{ url: "/images/logo-full.png", width: 1200, height: 630, alt: "Elásticos 8 de Agosto" }],
+    url: "/",
+    images: [{ url: "/images/og-taller.jpg", width: 1200, height: 630, alt: "Taller Elásticos 8 de Agosto en Pablo Podestá" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Elásticos 8 de Agosto | Suspensión para camiones pesados",
     description:
       "Venta y reparación de elásticos para camiones 6x4 y 8x4. Taller propio en Pablo Podestá.",
-    images: ["/images/logo-full.png"],
+    images: ["/images/og-taller.jpg"],
   },
-  robots: { index: true, follow: true },
-  alternates: { canonical: "https://elasticos8deagosto.com.ar" },
+  robots: { index: true, follow: true, "max-image-preview": "large" },
+  // Cada página declara su propio canonical; acá solo el de la home (si no, todas heredaban "/").
+  alternates: { canonical: "/" },
 }
 
 export const viewport: Viewport = {
@@ -108,7 +110,10 @@ const jsonLd = {
     ratingValue: "4.6",
     reviewCount: "50",
   },
-  image: "https://elasticos8deagosto.com.ar/images/logo-full.png",
+  image: "https://elasticos8deagosto.com.ar/images/og-taller.jpg",
+  logo: "https://elasticos8deagosto.com.ar/images/logo-full.png",
+  hasMap: "https://www.google.com/maps/place/El%C3%A1sticos+8+de+Agosto/@-34.5666772,-58.6213974,17z",
+  areaServed: ["Buenos Aires", "Argentina"],
 }
 
 export default function RootLayout({
@@ -121,7 +126,7 @@ export default function RootLayout({
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
         />
       </head>
       <body className="font-sans antialiased">

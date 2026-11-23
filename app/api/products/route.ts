@@ -1,18 +1,19 @@
 import { NextResponse } from "next/server"
 import { exigirAdmin } from "@/lib/admin-session"
-import { createProduct, getAllProducts } from "@/lib/db/products"
+import { createProduct, getAllProducts, publicProduct } from "@/lib/db/products"
 
 export const dynamic = "force-dynamic"
 
-export async function GET() {
+export async function GET(request: Request) {
   try {
     const result = await getAllProducts()
-    return NextResponse.json(result)
-  } catch (error: any) {
-    return NextResponse.json(
-      { error: error.message || "Error al obtener productos" },
-      { status: 500 }
-    )
+    // Costo, margen y precio manual son datos internos: solo los ve el panel con sesión válida.
+    const esAdmin = (await exigirAdmin(request)) === null
+    if (esAdmin) return NextResponse.json(result)
+    return NextResponse.json({ ...result, products: result.products.map(publicProduct) })
+  } catch (error) {
+    console.error("GET /api/products:", error)
+    return NextResponse.json({ error: "Error al obtener productos" }, { status: 500 })
   }
 }
 

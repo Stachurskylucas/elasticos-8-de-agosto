@@ -216,7 +216,6 @@ export function TrabajosGallery() {
               src={currentPhoto.src}
               alt={currentPhoto.alt}
               fill
-              priority
               sizes="(max-width: 1200px) 100vw, 1200px"
               className="object-contain"
             />

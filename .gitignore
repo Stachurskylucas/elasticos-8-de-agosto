@@ -34,3 +34,6 @@ desktop.ini
 *.log
 .vercel
 .env*
+
+# graphify (índice local del código)
+graphify-out/

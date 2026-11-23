@@ -61,7 +61,7 @@ export function SiteHeader() {
             width={160}
             height={83}
             className="h-12 w-auto object-contain sm:h-13 md:h-14 lg:h-16"
-            priority
+            preload
           />
           <span className="sr-only">Elásticos 8 de Agosto</span>
         </Link>

@@ -1,0 +1,11 @@
+.next/
+node_modules/
+.claude/
+.vercel/
+fotosia/
+public/
+graphify-out/
+tsconfig.tsbuildinfo
+catalogo-backup.txt
+*.jpeg
+*.png
