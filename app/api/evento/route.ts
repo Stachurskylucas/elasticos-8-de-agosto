@@ -45,6 +45,8 @@ export async function POST(request: Request) {
 
   const ip = (request.headers.get("x-forwarded-for") || "").split(",")[0].trim() || "local"
   const ahora = Date.now()
+  // Que el mapa no crezca sin límite en una instancia que vive mucho tiempo.
+  if (porIp.size > 5000) for (const [k, v] of porIp) if (ahora - v.desde >= 60_000) porIp.delete(k)
   const r = porIp.get(ip)
   if (r && ahora - r.desde < 60_000) {
     if (++r.n > 120) return new NextResponse(null, { status: 429 })

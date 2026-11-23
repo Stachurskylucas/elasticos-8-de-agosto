@@ -1,8 +1,16 @@
 import type { Metadata } from "next"
+import { preload } from "react-dom"
+import { getAllBrands } from "@/lib/db/brands"
+import { getAllCategories } from "@/lib/db/categories"
+import { getAllProducts, publicProduct } from "@/lib/db/products"
 import { CatalogoInformativo } from "./catalogo-informativo"
 
+// El catálogo se renderiza en el servidor (visible para Google) y se regenera cada 5 minutos.
+export const revalidate = 300
+
 export const metadata: Metadata = {
-  title: "Catálogo de Elásticos y Repuestos para Camiones | Elásticos 8 de Agosto",
+  // El layout agrega " | Elásticos 8 de Agosto" con su template.
+  title: "Catálogo de elásticos y repuestos para camiones",
   description:
     "Elásticos completos armados, hojas de recambio, bujes, grampas Grado 8/10.9, pernos y amortiguadores para camiones 6x4, 8x4 y utilitarios. Stock permanente en Pablo Podestá.",
   keywords: [
@@ -16,15 +24,17 @@ export const metadata: Metadata = {
     "elásticos zona oeste",
   ],
   alternates: {
-    canonical: "https://elasticos8deagosto.com.ar/productos",
+    canonical: "/productos",
   },
   openGraph: {
     title: "Catálogo de Elásticos y Repuestos Pesados | Elásticos 8 de Agosto",
     description:
       "Stock físico permanente de elásticos completos, hojas maestras, grampas Grado 8 y bujes para camiones y acoplados.",
-    url: "https://elasticos8deagosto.com.ar/productos",
+    url: "/productos",
     type: "website",
-    images: [{ url: "/images/logo-full.png", width: 1200, height: 630, alt: "Catálogo Elásticos 8 de Agosto" }],
+    locale: "es_AR",
+    siteName: "Elásticos 8 de Agosto",
+    images: [{ url: "/images/og-taller.jpg", width: 1200, height: 630, alt: "Catálogo Elásticos 8 de Agosto" }],
   },
 }
 
@@ -35,10 +45,10 @@ const catalogSchema = {
   description:
     "Distribución y provisión directa de elásticos completos, hojas, bujes, grampas y amortiguadores para camiones pesados 6x4 y 8x4.",
   url: "https://elasticos8deagosto.com.ar/productos",
-  telephone: "+54 11 4669-0000",
+  // Mismos datos NAP que el JSON-LD del layout (Google compara nombre, dirección y teléfono).
+  telephone: "+541146690000",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Av. Márquez / Pablo Podestá",
     addressLocality: "Pablo Podestá",
     addressRegion: "Buenos Aires",
     addressCountry: "AR",
@@ -81,12 +91,21 @@ const catalogSchema = {
   },
 }
 
-export default function ProductosPage() {
+export default async function ProductosPage() {
+  // La foto del hero es un background CSS: sin esto el navegador la descubre tarde (LCP).
+  preload("/images/banner-ruta.webp", { as: "image", fetchPriority: "high" })
+
+  const [{ products }, categories, { brands }] = await Promise.all([
+    getAllProducts(),
+    getAllCategories(),
+    getAllBrands(),
+  ])
+
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(catalogSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(catalogSchema).replace(/</g, "\\u003c") }}
       />
 
       {/* ============ HERO ============ */}
@@ -117,7 +136,11 @@ export default function ProductosPage() {
       </section>
 
       {/* ============ CATÁLOGO INFORMATIVO, ESTANTERÍAS Y FORMULARIO DE CONTACTO ============ */}
-      <CatalogoInformativo />
+      <CatalogoInformativo
+        initialProducts={products.map(publicProduct)}
+        initialCategories={categories}
+        initialBrands={brands.map(({ id, name }) => ({ id, name }))}
+      />
     </>
   )
 }

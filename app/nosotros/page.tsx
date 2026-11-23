@@ -1,16 +1,31 @@
 import type { Metadata } from "next"
+import { preload } from "react-dom"
 import Image from "next/image"
 import Link from "next/link"
 import { Clock, ShieldCheck, Truck } from "lucide-react"
 import { wa } from "@/lib/site"
 
 export const metadata: Metadata = {
-  title: "Nosotros | Elásticos 8 de Agosto — Suspensión Pesada 6x4 y 8x4",
+  // El layout agrega " | Elásticos 8 de Agosto" con su template.
+  title: "Nosotros: 30 años en elásticos para camiones",
   description:
     "Más de 30 años reparando y vendiendo elásticos para camiones de carga pesada. Taller propio en Pablo Podestá, Buenos Aires.",
+  alternates: { canonical: "/nosotros" },
+  openGraph: {
+    type: "website",
+    locale: "es_AR",
+    siteName: "Elásticos 8 de Agosto",
+    url: "/nosotros",
+    title: "Nosotros | Elásticos 8 de Agosto",
+    description: "Más de 30 años reparando y vendiendo elásticos para camiones de carga pesada en Pablo Podestá.",
+    images: [{ url: "/images/og-taller.jpg", width: 1200, height: 630, alt: "Taller Elásticos 8 de Agosto" }],
+  },
 }
 
 export default function NosotrosPage() {
+  // La foto del hero es un background CSS: sin esto el navegador la descubre tarde (LCP).
+  preload("/images/banner-ruta.webp", { as: "image", fetchPriority: "high" })
+
   return (
     <>
       {/* ============ HERO ============ */}

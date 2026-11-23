@@ -84,7 +84,7 @@ export function TallerCarousel({ photos }: { photos: WorkshopPhoto[] }) {
                 alt={photo.alt}
                 fill
                 sizes="(max-width: 1280px) 100vw, 1200px"
-                priority={index === 0}
+                preload={index === 0}
                 className="object-cover"
               />
               {/* Gradiente para legibilidad del texto */}

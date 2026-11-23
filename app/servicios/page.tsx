@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import { preload } from "react-dom"
 import {
   Camera,
   CircleDot,
@@ -17,9 +18,20 @@ import { TallerCarousel, type WorkshopPhoto } from "@/components/taller-carousel
 import { TrabajosGallery } from "@/components/trabajos-gallery"
 
 export const metadata: Metadata = {
-  title: "Servicios de Taller | Elásticos 8 de Agosto — Suspensión Pesada",
+  // El layout agrega " | Elásticos 8 de Agosto" con su template.
+  title: "Taller de suspensión para camiones 6x4 y 8x4",
   description:
     "Reparación de elásticos, bujes, tensores y alineación para camiones 6x4 y 8x4. Taller propio en Pablo Podestá, Buenos Aires.",
+  alternates: { canonical: "/servicios" },
+  openGraph: {
+    type: "website",
+    locale: "es_AR",
+    siteName: "Elásticos 8 de Agosto",
+    url: "/servicios",
+    title: "Servicios de taller | Elásticos 8 de Agosto",
+    description: "Reparación de elásticos, bujes, tensores y alineación para camiones 6x4 y 8x4 en Pablo Podestá.",
+    images: [{ url: "/images/og-taller.jpg", width: 1200, height: 630, alt: "Taller Elásticos 8 de Agosto" }],
+  },
 }
 
 const TALLER_FOTOS: WorkshopPhoto[] = [
@@ -125,6 +137,9 @@ const SERVICIOS = [
 ]
 
 export default function ServiciosPage() {
+  // La foto del hero es un background CSS: sin esto el navegador la descubre tarde (LCP).
+  preload("/images/banner-ruta.webp", { as: "image", fetchPriority: "high" })
+
   return (
     <>
       {/* ============ HERO ============ */}

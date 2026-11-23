@@ -2,7 +2,8 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 import { COOKIE_ADMIN, sesionValida } from '@/lib/admin-session'
 
-export async function middleware(request: NextRequest) {
+// Next.js 16: "middleware" pasó a llamarse "proxy" (misma funcionalidad, runtime Node por defecto).
+export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
 
   if (pathname.startsWith('/admin') && pathname !== '/admin/login') {
